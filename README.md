@@ -12,7 +12,7 @@
 ## Preview
 ![Cuplikan layar 2025-06-20 174552](https://github.com/user-attachments/assets/09f65859-2867-4b3a-af20-aa4cc965b923)
 
-## Check (Matching Template)
+## Check (Template Matching)
 ![Cuplikan layar 2025-06-20 174619](https://github.com/user-attachments/assets/031f1178-f613-456e-88d6-dc3abb0ef397)
 
 ## Result
