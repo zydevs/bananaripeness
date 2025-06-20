@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload - Pengolahan Citra CCTV</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/upload.css') }}">
+    <!-- <link rel="shortcut icon" href="../static/img/favicon-32x32.png" type="image/x-icon"> -->
+</head>
+<body>
+    <nav>
+       <div class="navbar">
+            <a href="{{ url_for('upload_page') }}">
+                <div class="get-started-btn">Get Started</div>
+            </a>
+            <a href="{{ url_for('home') }}">
+                <div class="nav-item nav-home">Home</div>
+            </a>
+            <a href="{{ url_for('about') }}">
+                <div class="nav-item nav-about">About</div>
+            </a>
+        </div>
+    </nav>
+    
+    <div class="content">
+        <div class="scale-in">
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <div class="box">
+                    <div class="icon">
+                        <img src="{{ url_for('static', filename='img/upload-icon.png') }}" alt="">
+                    </div>
+                    <div class="file-upload-wrapper">
+                        <label for="file-upload" class="custom-upload-btn">Choose Photo</label>
+                        <span id="file-name">(jpg, jpeg, png)</span>
+                        <input type="file" name="image" id="file-upload" accept=".jpg,.jpeg,.png" required>
+                    </div>
+                    <button type="submit" class="btn">Upload</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('file-upload').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : "(jpg, jpeg, png)";
+            document.getElementById('file-name').textContent = fileName;
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - GLCM</title>
+    <link rel="stylesheet" href="./static/css/home.css">
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <a href="{{ url_for('upload_page') }}">
+                <div class="get-started-btn">Get Started</div>
+            </a>
+            <a href="{{ url_for('home') }}">
+                <div class="nav-item nav-home">Home</div>
+            </a>
+            <a href="{{ url_for('about') }}">
+                <div class="nav-item nav-about">About</div>
+            </a>
+        </div>
+    </nav>
+    
+    <div class="content slide-up">
+        <div class="content-title">
+            Analisis Kematangan Buah<br/>Pisang Dengan Metode Gray<br/>Level Co-Occurance Matrix
+        </div>
+        <a href="{{  url_for('upload_page') }}">
+            <div class="upload-button">Upload</div>
+        </a>
+    </div>
+    
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.slide-up').forEach(el => {
+                el.style.animationDelay = '0.2s'; // tambahkan delay jika mau
+            });
+        });
+    </script>
+
+</body>
+</html>

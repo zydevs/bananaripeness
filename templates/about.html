@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - GLCM</title>
+    <link rel="stylesheet" href="./static/css/about.css">
+    <!-- <link rel="shortcut icon" href="../static/img/favicon-32x32.png" type="image/x-icon"> -->
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <a href="{{ url_for('upload_page') }}">
+                <div class="get-started-btn">Get Started</div>
+            </a>
+            <a href="{{ url_for('home') }}">
+                <div class="nav-item nav-home">Home</div>
+            </a>
+            <a href="{{ url_for('about') }}">
+                <div class="nav-item nav-about">About</div>
+            </a>
+        </div>
+    </nav>
+    
+    <div class="content">
+        <div class="scale-in">
+            <div class="picture">
+                <img src="./static/img/profile_1.png" alt="">
+            </div>
+            <div class="name">
+                <h1>Aldi Hidayat</h1>
+                <h1>065122213</h1>
+                <h1>Frontend</h1>
+            </div>
+        </div>
+        <div class="scale-in">
+            <div class="picture">
+                <img src="./static/img/profile_2.png" alt="">
+            </div>
+            <div class="name">
+                <h1>Muhamad Hafizi</h1>
+                <h1>065122214</h1>
+                <h1>Full-Stack Developer</h1>
+            </div>
+        </div>
+        <div class="scale-in">
+            <div class="picture">
+                <img src="./static/img/profile_3.png" alt="">
+            </div>
+            <div class="name">
+                <h1>Muhamad Hafizi</h1>
+                <h1>065122214</h1>
+                <h1>UI/UX Designer</h1>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.scale-in');
+            elements.forEach((el, i) => {
+                el.style.animationDelay = `${i * 0.3}s`;
+            });
+        });
+    </script>
+
+    
+</body>
+</html>

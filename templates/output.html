@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result - Pengolahan Citra CCTV</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+    <!-- <link rel="shortcut icon" href="../static/img/favicon-32x32.png" type="image/x-icon"> -->
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            
+            <a href="{{ url_for('home') }}">
+                <div class="nav-item nav-home">Home</div>
+            </a>
+            <a href="{{ url_for('about') }}">
+                <div class="nav-item nav-about">About</div>
+            </a>
+        </div>
+    </nav>
+    
+    <div class="content">
+        <div class="box">
+             <h2 class="title-preview">GLCM Results</h2>
+            <div class="image-output">
+
+                <div class="image-item">
+                    <a href="{{ rgb_img }}" download>
+                        <img src="{{ rgb_img }}" alt="Grayscale">
+                    </a>
+                    <h1 class="feature">Citra RGB</h1>
+                    <a href="{{ rgb_img }}" download class="btn-d">Download</a>
+                </div>
+
+                <div class="image-item">
+                    <a href="{{ lab_img }}" download>
+                        <img src="{{ lab_img }}" alt="Filter Median">
+                    </a>
+                    <h1 class="feature">Citra L*a*b</h1>
+                    <a href="{{ lab_img }}" download class="btn-d">Download</a>
+                </div>
+
+                <div class="image-item">
+                    <a href="{{ segment_img }}" download>
+                        <img src="{{ segment_img }}" alt="Deteksi Tepi">
+                    </a>
+                    <h1 class="feature">Segmentasi K-Means</h1>
+                    <a href="{{ segment_img }}" download class="btn-d">Download</a>
+                </div>
+
+                <div class="result">
+                    <h2 class="feature">Hasil Analisis GLCM:</h2>
+                    <ul>
+                        <li class="feature">Contrast: {{ contrast }}</li>
+                        <li class="feature">Homogeneity: {{ homogeneity }}</li>
+                        <li class="feature">Energy: {{ energy }}</li>
+                        <li class="feature">Correlation: {{ correlation }}</li>
+                    </ul>
+                    <h2 class="feature">Hasil Prediksi:</h2>
+                    <p class="feature"><strong>{{ maturity_result }}</strong></p>
+                </div>         
+                       
+            </div>
+            
+           
+
+            <a href="{{ url_for('upload_page') }}" class="btn">Re-Upload</a>
+        </div>
+    </div>
+
+</body>
+</html>
