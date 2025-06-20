@@ -29,10 +29,6 @@
             <br>
             <a href="{{ url_for('check') }}" class="btn">Check Image</a>
 
-            <div id="loading-spinner" style="display:none; text-align:center; margin-top:10px;">
-                <div class="spinner"></div>
-            </div>
-
         </div>
     </div>
 
@@ -49,7 +45,7 @@
                 // Redirect manual setelah sedikit delay (misal 500ms)
                 setTimeout(() => {
                     window.location.href = btn.getAttribute('href');
-                }, 2000); // atau bisa langsung 0 jika tidak ingin delay
+                }, 0); // atau bisa langsung 0 jika tidak ingin delay
             });
         });
     </script>

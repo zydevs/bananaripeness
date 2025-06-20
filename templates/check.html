@@ -3,56 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check - Pengolahan Citra CCTV</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/preview.css') }}">
-    <!-- <link rel="shortcut icon" href="../static/img/favicon-32x32.png" type="image/x-icon"> -->
+    <title>Check - Template Matching Pisang</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/check.css') }}">
 </head>
 <body>
     <nav>
         <div class="navbar">
-            
             <a href="{{ url_for('home') }}">
-                <div class="nav-item nav-home">Home</div>
+                <div class="nav-item nav-home">Home</div>   
             </a>
             <a href="{{ url_for('about') }}">
                 <div class="nav-item nav-about">About</div>
             </a>
         </div>
     </nav>
-    
+
     <div class="content">
         <div class="box">
-            <h2 class="title-preview">Template Matching - Banana</h2>
-        <div class="image">
-                <img src="{{ file_url }}" alt="Gambar Asli">
-            </div>
-            <br>
-            <a href="{{ url_for('process') }}" class="btn">Process</a>
+            <h2 class="title-preview">Hasil Deteksi - Template Matching</h2>
+
+            {% if detected_img %}
+                <div class="image">
+                    <img src="{{ detected_img }}" alt="Hasil Deteksi">
+                </div>
+
+                <p class="feature"><strong>Jumlah Pisang Terdeteksi:</strong> {{ num_detections }}</p>
+                <p class="feature"><strong>Nilai Matching Maksimum:</strong> {{ max_val }}</p>
+
+                {% if num_detections > 0 %}
+                    <p style="color: green;"><strong>Gambar terdeteksi Pisang</strong></p>
+                    
+                    <!-- Tampilkan tombol proses hanya jika pisang terdeteksi -->
+                    <a href="{{ url_for('process') }}" class="btn">Process Ripeness</a>
+                {% else %}
+                    <p style="color: red;"><strong>Gambar tidak terdeteksi Pisang</strong></p>
+                    
+                    <!-- Tampilkan tombol kembali jika tidak terdeteksi -->
+                    <a href="{{ url_for('upload_page') }}" class="btn" style="background-color: gray;">Kembali Upload</a>
+                {% endif %}
+            {% else %}
+                <p style="color:gray;">Silakan unggah gambar terlebih dahulu lalu akses halaman ini.</p>
+                <a href="{{ url_for('upload_page') }}" class="btn">Re-Upload</a>
+            {% endif %}
 
             <div id="loading-spinner" style="display:none; text-align:center; margin-top:10px;">
                 <div class="spinner"></div>
             </div>
-
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const btn = document.querySelector('.btn');
-
-            btn.addEventListener('click', function (e) {
-                e.preventDefault(); // Cegah langsung redirect
-                btn.textContent = 'Processing...';
-                btn.classList.add('loading'); // Tambah class untuk animasi jika ada
-                btn.disabled = true;
-
-                // Redirect manual setelah sedikit delay (misal 500ms)
-                setTimeout(() => {
-                    window.location.href = btn.getAttribute('href');
-                }, 2000); // atau bisa langsung 0 jika tidak ingin delay
-            });
-        });
-    </script>
-
 </body>
 </html>
